@@ -15,52 +15,67 @@ function getComputerChoice(){
         choice = "scissors";
     }
 
-    return choice.toLowerCase();
+    return choice;
 
 }
 
 
 function theGame(playerChoice,computerChoice){
 
+    //Assign  a short name variable for code readability
     let pC = playerChoice.toLowerCase();
     let cC = computerChoice;
+    let r = "rock";
+    let p = "paper";
+    let s = "scissors";
+
     let winLose;
     let result;
-     if(pC === "rock" && cC === "scissors"){
+     if(pC === r && cC === s){
+
          winLose = "win";
          result = `you ${winLose}!Rock beats scissors`;
          
      }
-     else if(cC === "rock" && pC === "scissors"){
+     else if(cC === r && pC === s){
+
          winLose = "lose";
          result = `you ${winLose}!Rock beats scissors`;
      }
-     else if(pC === "scissors" && cC === "paper"){
+     else if(pC === s && cC === p){
+
          winLose = "win";
          result = `you ${winLose}!Scissors beats paper`;
      }
-     else if(cC === "scissors" && pC === "paper"){
+     else if(cC === s && pC === p){
+
          winLose = "lose";
          result = `you ${winLose}!Scissors beats paper`;
      }
-     else if(pC  === "paper" && cC === "rock"){
+     else if(pC  === p && cC === r){
+
         winLose = "win";
         result = `you ${winLose}!paper beats rock`;
      }
-     else if(cC  === "paper" && pC === "rock"){
+     else if(cC  === p && pC === r){
+
         winLose = "lose";
         result = `you ${winLose}!paper beats rock`;
      }
-     else if(pC === "rock" && cC === pC){
+     else if(pC === r && cC === pC){
+
         result = "rock ties with rock";
      }
      else if(pC === "paper" && cC === pC){
+
         result = "paper ties with paper";
      }
      else if(pC === "scissors" && cC === pC){
+
         result = "scissors ties with scissors";
      }
      else{
+
         result = "you entered a wrong choice"
      }
 
@@ -69,5 +84,5 @@ function theGame(playerChoice,computerChoice){
 
 //  console.log(theGame("rock","paper"));
 
-console.log(theGame("scissors",getComputerChoice()));
+console.log(theGame("rock",getComputerChoice()));
  
