@@ -24,6 +24,7 @@ function theGame(playerChoice,computerChoice){
 
     //Assign  a short name variable for code readability
     let pC = playerChoice.toLowerCase();
+    pC = pC.trim();
     let cC = computerChoice;
     let r = "rock";
     let p = "paper";
@@ -82,7 +83,45 @@ function theGame(playerChoice,computerChoice){
      return result;
  }
 
-//  console.log(theGame("rock","paper"));
+// console.log(theGame("rock",getComputerChoice()));
 
-console.log(theGame("rock",getComputerChoice()));
+function gameRounds(){
+    
+    let playerScore=0;
+    let computerScore=0;
+    let playerWeapon;
+
+    for(let i=0; i<5; i++){
+        playerWeapon = prompt("Choose your weapon!");
+        let result = theGame(playerWeapon,getComputerChoice());
+
+
+        if(result.substring(4,7) === "win"){
+            console.log(result);
+            playerScore++;
+        }
+        else if(result.substring(4,7) === "los"){
+            console.log(result);
+            computerScore++;
+        }
+        else if(result.substring(4,7) === "ent"){
+            console.log(result);
+        }
+        else{
+            console.log("it's a Draw");
+        }
+    }
+
+    if(playerScore > computerScore){
+        return `player beats computer by score ${playerScore}:${computerScore}`
+    }
+    else if(computerScore > playerScore){
+        return `computer beats player by score ${computerScore}:${playerScore}`
+    }
+    else{
+        return `it's a Draw by score ${playerScore}:${computerScore} `
+    }
+
+}
  
+console.log(gameRounds());
