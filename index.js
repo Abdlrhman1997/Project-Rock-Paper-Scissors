@@ -19,18 +19,55 @@ function getComputerChoice(){
 
 }
 
-function theGame(playerChoice,computerChoice){
-   let pC = playerChoice;
-   let cC = computerChoice;
-   let winLose;
-   let result;
-    if(pC === "rock" && cC === "scissors"){
-        winLose = "win";
-        result = `you ${winLose}! Rock beat scissors`;
-    }
-    else if(cC === "rock" && pC === "scissors"){
-        winLose = "lose";
-        result = `you ${winLose}! Rock beat scissors`;
-    }
-}
 
+function theGame(playerChoice,computerChoice){
+
+    let pC = playerChoice.toLowerCase();
+    let cC = computerChoice;
+    let winLose;
+    let result;
+     if(pC === "rock" && cC === "scissors"){
+         winLose = "win";
+         result = `you ${winLose}!Rock beats scissors`;
+         
+     }
+     else if(cC === "rock" && pC === "scissors"){
+         winLose = "lose";
+         result = `you ${winLose}!Rock beats scissors`;
+     }
+     else if(pC === "scissors" && cC === "paper"){
+         winLose = "win";
+         result = `you ${winLose}!Scissors beats paper`;
+     }
+     else if(cC === "scissors" && pC === "paper"){
+         winLose = "lose";
+         result = `you ${winLose}!Scissors beats paper`;
+     }
+     else if(pC  === "paper" && cC === "rock"){
+        winLose = "win";
+        result = `you ${winLose}!paper beats rock`;
+     }
+     else if(cC  === "paper" && pC === "rock"){
+        winLose = "lose";
+        result = `you ${winLose}!paper beats rock`;
+     }
+     else if(pC === "rock" && cC === pC){
+        result = "rock ties with rock";
+     }
+     else if(pC === "paper" && cC === pC){
+        result = "paper ties with paper";
+     }
+     else if(pC === "scissors" && cC === pC){
+        result = "scissors ties with scissors";
+     }
+     else{
+        result = "you entered a wrong choice"
+     }
+
+     return result;
+ }
+
+//  console.log(theGame("rock","paper"));
+
+console.log(theGame("scissors",getComputerChoice()));
+ 
