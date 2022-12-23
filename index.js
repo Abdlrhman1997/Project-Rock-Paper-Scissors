@@ -91,7 +91,7 @@ function gameRounds(){
     let computerScore=0;
     let playerWeapon;
 
-    for(let i=0; i<5; i++){
+    // for(let i=0; i<5; i++){
         playerWeapon = prompt("Choose your weapon!");
         let result = theGame(playerWeapon,getComputerChoice());
 
@@ -110,7 +110,7 @@ function gameRounds(){
         else{
             console.log("it's a Draw");
         }
-    }
+    // }
 
     if(playerScore > computerScore){
         return `player beats computer by score ${playerScore}:${computerScore}`
@@ -123,5 +123,26 @@ function gameRounds(){
     }
 
 }
+
+// let rock = document.querySelector("#rock");
+// let paper = document.querySelector("#paper");
+// let scissors = document.querySelector("#scissors");
+
+
+// let rockResult = theGame("rock",getComputerChoice());
+// let paperResult = theGame("paper",getComputerChoice());
+// let scissorsResult = theGame("scissors",getComputerChoice());
+
+// let resultDiv = document.createElement("div");
  
-console.log(gameRounds());
+
+// rock.addEventListener("click",()=>{
+//     let rockResult = theGame("rock",getComputerChoice());
+//     resultDiv.append(rockResult);
+//     document.body.append(resultDiv);
+    
+// });
+// paper.addEventListener("click",()=>{});
+// scissors.addEventListener("click",()=>{console.log()});
+
+ 
