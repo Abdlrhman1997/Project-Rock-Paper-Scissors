@@ -1,6 +1,7 @@
 body{
     margin:0;
     background-color: antiquewhite;
+   
     
 }
 
@@ -13,6 +14,11 @@ body{
     align-items: center;
 }
 
+#result ,#score{
+    font-size: 25px;
+}
+
+
 #header h1{
     font-size: 70px;
 }
@@ -22,12 +28,12 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    margin-top: 20px;
 }
 
 .imagesContainer{
     
-    height: 500px;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items:flex-end;
@@ -36,9 +42,19 @@ body{
 img{
     height: 150px;
     width: 150px;
-    margin-bottom: 55px;
+    margin-bottom: 50px;
     border-radius: 8px;
     border: 3px salmon solid;
+}
+
+img:hover{
+    box-shadow: 5px 10px 8px 10px #888888;
+    cursor: pointer;
+}
+img:active{
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 footer{
@@ -49,4 +65,5 @@ footer{
     align-items: center;
     color: aliceblue;
     font-size: 20px;
+    margin-top: 130px;
 }
