@@ -1,3 +1,42 @@
+let rock = document.querySelector("#rock");
+ let paper = document.querySelector("#paper");
+ let scissors = document.querySelector("#scissors");
+
+ let result = document.querySelector("#result");
+ let score = document.querySelector("#score");
+
+ let playerScore=0;
+ let computerScore=0;
+ let resultOfGame;
+
+ function clickTheGame(playerChoice){
+    resultOfGame = theGame(playerChoice,getComputerChoice());
+    result.innerHTML = resultOfGame;
+    if(resultOfGame.charAt(4) === "w"){
+        playerScore++;
+    }
+    else if(resultOfGame.charAt(4) === "l"){
+        computerScore++;
+    }
+    score.innerHTML = `player: ${playerScore} || computer: ${computerScore}`;
+ }
+ 
+ rock.onclick = function(){
+   clickTheGame("rock"); 
+
+ }
+ paper.onclick = function(){
+    clickTheGame("paper"); 
+ }
+
+ scissors.onclick = function(){
+    clickTheGame("scissors"); 
+ }
+
+
+
+
+
 function getComputerChoice(){
 
     let choice;
@@ -29,39 +68,39 @@ function theGame(playerChoice,computerChoice){
     let r = "rock";
     let p = "paper";
     let s = "scissors";
-
+    
     let winLose;
     let result;
      if(pC === r && cC === s){
 
          winLose = "win";
-         result = `you ${winLose}!Rock beats scissors`;
+         result = `you ${winLose}! Rock beats scissors`;
          
      }
      else if(cC === r && pC === s){
 
          winLose = "lose";
-         result = `you ${winLose}!Rock beats scissors`;
+         result = `you ${winLose}! Rock beats scissors`;
      }
      else if(pC === s && cC === p){
 
          winLose = "win";
-         result = `you ${winLose}!Scissors beats paper`;
+         result = `you ${winLose}! Scissors beats paper`;
      }
      else if(cC === s && pC === p){
 
          winLose = "lose";
-         result = `you ${winLose}!Scissors beats paper`;
+         result = `you ${winLose}! Scissors beats paper`;
      }
      else if(pC  === p && cC === r){
 
         winLose = "win";
-        result = `you ${winLose}!paper beats rock`;
+        result = `you ${winLose}! paper beats rock`;
      }
      else if(cC  === p && pC === r){
 
         winLose = "lose";
-        result = `you ${winLose}!paper beats rock`;
+        result = `you ${winLose}! paper beats rock`;
      }
      else if(pC === r && cC === pC){
 
@@ -87,29 +126,12 @@ function theGame(playerChoice,computerChoice){
 
 function gameRounds(){
     
-    let playerScore=0;
-    let computerScore=0;
-    let playerWeapon;
+    
+   
 
     // for(let i=0; i<5; i++){
-        playerWeapon = prompt("Choose your weapon!");
-        let result = theGame(playerWeapon,getComputerChoice());
-
-
-        if(result.substring(4,7) === "win"){
-            console.log(result);
-            playerScore++;
-        }
-        else if(result.substring(4,7) === "los"){
-            console.log(result);
-            computerScore++;
-        }
-        else if(result.substring(4,7) === "ent"){
-            console.log(result);
-        }
-        else{
-            console.log("it's a Draw");
-        }
+      
+    
     // }
 
     if(playerScore > computerScore){
@@ -124,9 +146,27 @@ function gameRounds(){
 
 }
 
-// let rock = document.querySelector("#rock");
-// let paper = document.querySelector("#paper");
-// let scissors = document.querySelector("#scissors");
+//  let rock = document.querySelector("#rock");
+//  let paper = document.querySelector("#paper");
+//  let scissors = document.querySelector("#scissors");
+
+//  let result = document.querySelector("#result");
+
+ 
+//  rock.onclick = function(){
+//     result.textContent = theGame("rock",getComputerChoice());
+
+//  }
+//  paper.onclick = function(){
+//     result.textContent = theGame("paper",getComputerChoice());
+//  }
+
+//  scissors.onclick = function(){
+//     result.textContent = theGame("scissors",getComputerChoice());
+//  }
+
+
+ 
 
 
 // let rockResult = theGame("rock",getComputerChoice());
