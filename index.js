@@ -2,35 +2,83 @@ let rock = document.querySelector("#rock");
  let paper = document.querySelector("#paper");
  let scissors = document.querySelector("#scissors");
 
- let result = document.querySelector("#result");
- let score = document.querySelector("#score");
+let divWords = document.querySelector(".words");
+
+
 
  let playerScore=0;
  let computerScore=0;
- let resultOfGame;
+
+
+function createPlayAgainButton(){
+    let playAgainButton = document.createElement("button");
+    playAgainButton.textContent = "Play Again";
+    playAgainButton.style.marginTop = "30px";
+    playAgainButton.style.borderRadius = "8px";
+    playAgainButton.style.border = "3px salmon solid";
+    playAgainButton.style.fontSize ="20px";
+    divWords.append(playAgainButton);
+
+    playAgainButton.onclick = function(){
+        result.textContent = "Choose your weapon";
+        score.textContent = "First to score 5 points win the game";
+        playAgainButton.remove();
+
+       playerScore=0;
+       computerScore=0;
+       
+   }
+}
+
+function checkScore(){
+    if(playerScore === 5 && playerScore > computerScore){
+        result.textContent = `player beats computer by score ${playerScore}:${computerScore}`;  
+        createPlayAgainButton();
+    }
+    else if(computerScore === 5 && computerScore > playerScore){
+        result.textContent = `computer beats player by score ${computerScore}:${playerScore}`
+        createPlayAgainButton();
+    }
+}
 
  function clickTheGame(playerChoice){
-    resultOfGame = theGame(playerChoice,getComputerChoice());
-    result.innerHTML = resultOfGame;
+    let resultOfGame;
+    let result = document.querySelector("#result");
+    let score = document.querySelector("#score");
+
+   
+        resultOfGame = theGame(playerChoice,getComputerChoice());
+        result.innerHTML = resultOfGame;
     if(resultOfGame.charAt(4) === "w"){
         playerScore++;
+        checkScore();
     }
     else if(resultOfGame.charAt(4) === "l"){
         computerScore++;
+        checkScore();
     }
     score.innerHTML = `player: ${playerScore} || computer: ${computerScore}`;
- }
+
+    }
+    
+   
+    function activeClickOrNot(playerChoice){
+        if(playerScore !== 5 && computerScore !== 5)
+        clickTheGame(playerChoice);
+    }
+    
+ 
  
  rock.onclick = function(){
-   clickTheGame("rock"); 
-
+    activeClickOrNot("rock"); 
+   
  }
  paper.onclick = function(){
-    clickTheGame("paper"); 
+    activeClickOrNot("paper"); 
  }
 
  scissors.onclick = function(){
-    clickTheGame("scissors"); 
+    activeClickOrNot("scissors"); 
  }
 
 
@@ -122,67 +170,5 @@ function theGame(playerChoice,computerChoice){
      return result;
  }
 
-// console.log(theGame("rock",getComputerChoice()));
-
-function gameRounds(){
-    
-    
-   
-
-    // for(let i=0; i<5; i++){
-      
-    
-    // }
-
-    if(playerScore > computerScore){
-        return `player beats computer by score ${playerScore}:${computerScore}`
-    }
-    else if(computerScore > playerScore){
-        return `computer beats player by score ${computerScore}:${playerScore}`
-    }
-    else{
-        return `it's a Draw by score ${playerScore}:${computerScore} `
-    }
-
-}
-
-//  let rock = document.querySelector("#rock");
-//  let paper = document.querySelector("#paper");
-//  let scissors = document.querySelector("#scissors");
-
-//  let result = document.querySelector("#result");
-
- 
-//  rock.onclick = function(){
-//     result.textContent = theGame("rock",getComputerChoice());
-
-//  }
-//  paper.onclick = function(){
-//     result.textContent = theGame("paper",getComputerChoice());
-//  }
-
-//  scissors.onclick = function(){
-//     result.textContent = theGame("scissors",getComputerChoice());
-//  }
-
-
- 
-
-
-// let rockResult = theGame("rock",getComputerChoice());
-// let paperResult = theGame("paper",getComputerChoice());
-// let scissorsResult = theGame("scissors",getComputerChoice());
-
-// let resultDiv = document.createElement("div");
- 
-
-// rock.addEventListener("click",()=>{
-//     let rockResult = theGame("rock",getComputerChoice());
-//     resultDiv.append(rockResult);
-//     document.body.append(resultDiv);
-    
-// });
-// paper.addEventListener("click",()=>{});
-// scissors.addEventListener("click",()=>{console.log()});
 
  
