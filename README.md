@@ -1,2 +1,5 @@
 # Project-Rock-Paper-Scissors
-A simple game to put all the JS knowledge into practice.
+Rock paper scissors game created with HTML, CSS and JS.
+
+<br>
+<a href='https://abdlrhman1997.github.io/Project-Rock-Paper-Scissors/' target="_blank">Live Demo 👈</a>
